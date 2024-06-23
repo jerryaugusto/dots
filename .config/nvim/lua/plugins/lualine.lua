@@ -11,7 +11,7 @@ return {
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status") -- lazy pending updates
 		local icons = require("config.icons")
-    local blame = require("tinygit.statusline").blame
+    local tinygit = require("tinygit.statusline")
 
 
     -- Color table for highlights
@@ -214,7 +214,7 @@ return {
 		})
 
     ins_right({
-      blame,
+      tinygit.blame,
       color = { fg = colors.info }
     })
 
@@ -239,6 +239,11 @@ return {
 			},
 			cond = conditions.hide_in_width,
 		})
+
+    ins_right({
+      tinygit.branchState,
+      color = { fg = colors.types, gui = "bold" }
+    })
 
 		-- Add components to right sections
 		-- ins_right({

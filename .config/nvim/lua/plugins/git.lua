@@ -133,7 +133,7 @@ return {
       conventionalCommits = { enforce = true },
       spellcheck = true,
       keepAbortedMsgSecs = 60 * 10, -- 10 mins
-      insertIssuesOnHash = { enabled = true, next = "#" },
+      insertIssuesOnHash = { enabled = true },
     },
     historySearch = {
       autoUnshallowIfNeeded = true,
@@ -144,7 +144,16 @@ return {
       },
     },
     statusline = {
-      maxMsgLen = 25
+      blame = {
+        maxMsgLen = 15
+      },
+      branchState = {
+        icons = {
+          ahead = "󰬬", -- 󰶣
+          behind = "󰬦", -- 󰶡
+          diverge = "󰿣", -- 󰃻
+        },
+      },
     }
   }
 }
