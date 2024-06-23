@@ -1,0 +1,15 @@
+return {
+  "echasnovski/mini.starter",
+  version = "*",
+  config = function()
+    require("mini.starter").setup({
+      autoopen = true,
+      items = {
+        require('mini.starter').sections.builtin_actions(),
+        require('mini.starter').sections.recent_files(3, false),
+        require('mini.starter').sections.recent_files(3, true),
+        -- require('mini.starter').sections.sessions(3, true),
+      },
+    })
+  end
+}

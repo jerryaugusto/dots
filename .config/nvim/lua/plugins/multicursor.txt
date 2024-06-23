@@ -1,0 +1,22 @@
+local border = {
+  line = { '🭽', '▔', '🭾', '▕', '🭿', '▁', '🭼', '▏' },
+  rectangle = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
+}
+
+return {
+  'smoka7/multicursors.nvim',
+  event = 'VeryLazy',
+  dependencies = { 'nvim-treesitter/nvim-treesitter', 'smoka7/hydra.nvim' },
+  opts = {
+    hint_config = { border = border },
+  },
+  cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+  keys = {
+    {
+      '<M-e>',
+      '<cmd>MCstart<cr>',
+      mode = { 'v', 'n' },
+      desc = 'Create a selection for selected text or word under the cursor',
+    },
+  },
+}
