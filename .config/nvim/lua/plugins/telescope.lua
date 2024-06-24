@@ -45,7 +45,7 @@ return {
 			file_ignore_patterns = { "%.git/." },
 			defaults = {
 				path_display = { "smart" },
-				preview = false,
+				preview = true,
 				prompt_prefix = "" .. icons.ui.Telescope .. " ",
 				selection_caret = "" .. icons.ui.BoldArrowRight .. " ",
 				file_ignore_patterns = { "node_modules", "package-lock.json" },

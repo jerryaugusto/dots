@@ -73,7 +73,7 @@ local symbols = {
 
 return {
   'Bekaboo/dropbar.nvim',
-  enabled = false,
+  enabled = true,
   event = 'VeryLazy',
   keys = { { '<leader>wp', function() require('dropbar.api').pick() end, desc = 'winbar: pick' } },
   -- init = function()

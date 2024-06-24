@@ -69,8 +69,21 @@ return {
 		Branch = "",
 	},
 	dev = {
-		Golang = "",
-		Neovim = "",
+    Golang = "󰟓",
+		Gopher = "",
+    Build = "󰏓",
+    Comment = "󱀡",
+    Doc = "󰈚",
+    Import = "󰈠",
+    Lint = "",
+    Tag = "󰓻",
+    TestAB = "󰇉",
+    TestTube = "󰙨",
+    TestTubeEmpity = "󰤑",
+    TestTubeOff = "󰤒",
+    Split = "󰤼",
+    Fzy = "󰈞",
+    Signature = "󰈷"
 	},
 	ui = {
 		ArrowCircleDown = "",
