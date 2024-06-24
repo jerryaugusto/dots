@@ -44,9 +44,9 @@ if test -f $HOME/.config/fish/themes/Kanagawa.fish
 end
 
 # Automatically spawn "Warpify" subshells
-if status is-interactive
-    printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "fish"}}\x9c'
-end
+# if status is-interactive
+#     printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "fish"}}\x9c'
+# end
 
 set -Ux FZF_TMUX_OPTS "-p 55%,60%"
 # apt install: pacman -S.

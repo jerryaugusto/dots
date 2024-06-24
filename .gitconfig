@@ -5,7 +5,7 @@
 
 [core]
 	editor = nvim
-	excludesFile = /home/araujo/.gitignore_global
+	excludesFile = $HOME/.gitignore_global
 	pager = delta
 	symlinks = true
 
