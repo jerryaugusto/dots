@@ -144,11 +144,11 @@ return {
 			padding = { right = 1 },
 		})
 
-		ins_left({
-			-- filesize component
-			"filesize",
-			cond = conditions.buffer_not_empty,
-		})
+		-- ins_left({
+		-- 	-- filesize component
+		-- 	"filesize",
+		-- 	cond = conditions.buffer_not_empty,
+		-- })
 
 		ins_left({
 			"filename",
@@ -213,11 +213,6 @@ return {
 			color = { fg = colors.blue, gui = "bold" },
 		})
 
-    ins_right({
-      tinygit.blame,
-      color = { fg = colors.info }
-    })
-
 		ins_right({
 			"branch",
 			icon = "", --    󰘬
@@ -239,6 +234,11 @@ return {
 			},
 			cond = conditions.hide_in_width,
 		})
+
+    ins_right({
+      tinygit.blame,
+      color = { fg = colors.info }
+    })
 
     ins_right({
       tinygit.branchState,
@@ -265,7 +265,7 @@ return {
 				return "" -- ▊  
 			end,
 			color = { fg = colors.blue },
-			padding = { left = 1 },
+			padding = { left = -2 },
 		})
 
 		-- Now don't forget to initialize lualine
