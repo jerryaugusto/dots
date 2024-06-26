@@ -7,7 +7,7 @@ local opt = vim.opt
 local g = vim.g
 
 -- Font family
-if not vim.g.neovide then opt.guifont = "Maple Mono:h10" end
+if not vim.g.neovide then opt.guifont = "JetBrains Mono:h10" end
 
 -- Set leader key
 g.mapleader = " "
@@ -17,6 +17,8 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 -- vim.cmd("let g:netrw_liststyle = 3")
 
+-- opt.spell = true
+opt.spelllang = "en_us"
 opt.incsearch = true          -- make search act like search in modern browsers
 opt.backup = false            -- creates a backup file
 opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard

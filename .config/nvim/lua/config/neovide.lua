@@ -36,7 +36,7 @@ g.neovide_cursor_vfx_particle_speed = 40.0
 g.neovide_cursor_vfx_particle_phase = 1.3
 g.neovide_cursor_vfx_particle_curl = 1.3
 
-g.gui_font_default_size = 11
+g.gui_font_default_size = 10
 g.gui_font_size = g.gui_font_default_size
 -- g.gui_font_face = "Agave Nerd Font"
 -- g.gui_font_face = "JetBrainsMono Nerd Font"

@@ -8,6 +8,12 @@ return {
 	P = { require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Symbols" },
 	o = { require("telescope.builtin").buffers, "Open Buffer" },
 	W = { "<cmd>noautocmd w<cr>", "Save without formatting (noautocmd)" },
+  t = {
+    name = " Terminal",
+    g = { "<cmd>lua _GOLANG_TOGGLE()<cr>", "Golang" },
+    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" }, -- Horizontal Terminal,
+    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" }, -- Vertical Terminal
+  },
 	g = {
 		name = icons.dev.Gopher .. " Golang",
 		f = { "<cmd>Telescope find_files<cr>", icons.dev.Fzy .. " Fuzzy files (cwd)" },

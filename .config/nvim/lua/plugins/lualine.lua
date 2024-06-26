@@ -236,13 +236,13 @@ return {
 		})
 
     ins_right({
-      tinygit.blame,
-      color = { fg = colors.info }
+      tinygit.branchState,
+      color = { fg = colors.types, gui = "bold" }
     })
 
     ins_right({
-      tinygit.branchState,
-      color = { fg = colors.types, gui = "bold" }
+      tinygit.blame,
+      color = { fg = colors.info }
     })
 
 		-- Add components to right sections

@@ -1,3 +1,5 @@
+local icons = require "config.icons"
+
 return {
 	-- Neovim plugin to improve the default vim.ui interfaces
 	{
@@ -38,4 +40,14 @@ return {
 			require("scrollbar").setup()
 		end,
 	},
+  -- VSCode-like lightbulb for neovim's built-in LSP
+  {
+    'kosayoda/nvim-lightbulb',
+    event = 'LspAttach',
+    opts = {
+      autocmd = { enabled = true },
+      sign = { enabled = false },
+      float = { text = icons.ui.Lightbulb, enabled = true, win_opts = { border = 'none' } },
+    },
+  },
 }
