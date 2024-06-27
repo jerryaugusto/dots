@@ -155,5 +155,20 @@ return {
         },
       },
     }
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    enabled = true,
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    keys = {
+      { "<leader>Gg", "<cmd>LazyGit<cr>", desc = "Open LazyGit" }
+    }
   }
 }

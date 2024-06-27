@@ -1,6 +1,10 @@
 return {
 	"mfussenegger/nvim-dap",
-	event = "BufRead",
+	-- event = "BufRead",
+  ft = "go",
+  keys = {
+    { "<leader>d" }
+  },
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
 		"theHamsta/nvim-dap-virtual-text",

@@ -1,18 +1,18 @@
 local icons = require("config.icons")
 return {
 	mode = { "n", "v" },
-	w = { ":w!<CR>", "Save" },
 	q = { ":confirm q<CR>", "Quit" },
+	w = { ":w!<CR>", "Save" },
+	W = { "<cmd>noautocmd w<cr>", "Save without formatting (noautocmd)" },
 	h = { ":nohlsearch<CR>", "No Highlight" },
 	p = { require("telescope.builtin").lsp_document_symbols, "Document Symbols" },
 	P = { require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Symbols" },
 	o = { require("telescope.builtin").buffers, "Open Buffer" },
-	W = { "<cmd>noautocmd w<cr>", "Save without formatting (noautocmd)" },
-  t = {
-    name = " Terminal",
-    g = { "<cmd>lua _GOLANG_TOGGLE()<cr>", "Golang" },
-    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" }, -- Horizontal Terminal,
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" }, -- Vertical Terminal
+  R = {
+    name = icons.dev.ReplaceFind ..  " Replace (Spectre)",
+    r = { "<cmd>lua require('spectre').open()<cr>", icons.dev.Replace .. " Replace" },
+    w = { "<cmd>lua require('spectre').open_visual({ select_word = true })<cr>", icons.dev.Replace .. " Replace Word" },
+    f = { "<cmd>lua require('spectre').open_file_search()<cr>", icons.dev.Replace ..  " Replace Buffer" }
   },
 	g = {
 		name = icons.dev.Gopher .. " Golang",
@@ -80,7 +80,7 @@ return {
 		-- L = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics (Trouble)" },
 		w = { require("telescope.builtin").diagnostics, "Diagnostics" },
 		t = { require("telescope").extensions.refactoring.refactors, "Refactor" },
-		-- c = { require("config.utils").copyFilePathAndLineNumber, "Copy File Path and Line Number" },
+		c = { require("config.utils").copyFilePathAndLineNumber, "Copy File Path and Line Number" },
 	},
 	G = {
     t = {
