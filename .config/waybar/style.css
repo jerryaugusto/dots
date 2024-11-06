@@ -1,7 +1,8 @@
 @import "kanagawa.css";
 
 * {
-  font-family: "Maple Mono", monospace;
+  /* font-family: "Cartograph CF", monospace; */
+  font-family: "JetBrainsMono Nerd Font", monospace;
   font-size: 12px;
   min-height: 0;
 }
@@ -89,7 +90,7 @@
 
 #custom-launcher {
   background: none;
-  color: @crystalBlue;
+  color: @sumiInk1;
   margin: 0 1rem;
   font-size: 18px;
 }

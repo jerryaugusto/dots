@@ -1,17 +1,6 @@
-# Starship
-starship init fish | source
-
 # Oh-my-posh
 # oh-my-posh init fish | source
 # oh-my-posh init fish --config $HOME/.config/oh-my-posh/themes/kanagawa.omp.json | source
-
-# Zoxide cd alternative
-zoxide init fish | source
-
-# mise
-mise activate fish | source
-
-## IMPORTS
 
 # Environments
 if test -f $HOME/.config/fish/exports/environments.fish
@@ -48,9 +37,24 @@ end
 #     printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "fish"}}\x9c'
 # end
 
-set -Ux FZF_TMUX_OPTS "-p 55%,60%"
+# set -Ux FZF_TMUX_OPTS "-p 55%,60%"
 # apt install: pacman -S.
 # apt remove: pacman -Rs.
 # apt autoremove: pacman -Qdtq | pacman -Rs -.
 # apt autoclean: pacman -Scc.
 # apt search: pacman -Ss.
+
+# functions --copy fish_prompt fish_prompt_orig; function fish_prompt; fish_prompt_orig; echo; end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# Starship
+starship init fish | source
+
+# Zoxide cd alternative
+zoxide init fish | source
+
+# mise
+mise activate fish | source

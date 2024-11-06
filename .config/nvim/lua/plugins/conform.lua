@@ -1,29 +1,31 @@
-return {
-	"stevearc/conform.nvim",
-  enabled = false,
-	event = { "BufReadPre", "BufNewFile" },
-	config = function()
-		local conform = require("conform")
-		local keymap = vim.keymap.set
-
-		conform.setup({
-			formaters_by_ft = {
-				go = { "goimports", "gofumpt" },
-				lua = { "stylua" },
-			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			},
-		})
-
-		keymap({ "n", "v" }, "<leader>lF", function()
-			conform.format({
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			})
-		end, { desc = "Format file or range (in visual mode)" })
-	end,
-}
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		css = { "biome" },
+		html = { "prettierd" },
+		graphql = { "biome" },
+		javascript = { "biome" },
+		javascriptreact = { "rustywind", "biome" },
+		json = { "biome" },
+		jsonc = { "biome" },
+		markdown = { "biome" },
+		rust = { "rustfmt" },
+		typescript = { "biome" },
+		typescriptreact = { "rustywind", "biome" },
+		toml = { "taplo" },
+		["*"] = { "trim_whitespace" },
+	},
+	format_on_save = {
+		lsp_fallback = true,
+		timeout_ms = 500,
+		async = false,
+	},
+	-- formatters = {
+	-- 	biome = {
+	-- 		condition = function()
+	-- 			return vim.loop.fs_realpath("boime.json") ~= nil
+	-- 				or vim.loop.fs_realpath("biome.jsonc") ~= nil
+	-- 		end,
+	-- 	},
+	-- },
+})

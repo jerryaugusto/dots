@@ -1,20 +1,21 @@
 local wezterm = require("wezterm")
 
+local kanagawa = require("themes/kanagawa")
+
 local function font_with_fallback(name, params)
 	local names = { name, "Apple Color Emoji", "azuki_font" }
 	return wezterm.font_with_fallback(names, params)
 end
 
--- local font_name = "Hack Nerd Font"
 local font_name = "JetBrainsMono Nerd Font"
--- local font_name = "JetBrains Mono"
--- local font_name = "SauceCodePro Nerd Font"
 
 return {
 	-- OpenGL for GPU acceleration, Software for CPU
 	front_end = "OpenGL",
 
-	color_scheme = "Catppuccin Mocha",
+	force_reverse_video_cursor = true,
+	colors = kanagawa,
+	-- color_scheme = "Catppuccin Mocha",
 
 	-- Font config
 	font = font_with_fallback(font_name),
@@ -158,8 +159,8 @@ return {
 	window_padding = {
 		left = 5,
 		right = 5,
-		top = 5,
-		bottom = 0,
+		top = 0,
+		bottom = 2,
 	},
 
 	-- Tab Bar
@@ -171,7 +172,7 @@ return {
 	-- General
 	automatically_reload_config = true,
 	inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 },
-	window_background_opacity = 0.9,
+	window_background_opacity = 0.8,
 	window_close_confirmation = "NeverPrompt",
-	window_frame = { active_titlebar_bg = "#45475a", font = font_with_fallback(font_name, { bold = true }) },
+	window_frame = { active_titlebar_bg = "#2D4F67", font = font_with_fallback(font_name, { bold = true }) },
 }

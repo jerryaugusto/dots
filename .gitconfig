@@ -34,8 +34,8 @@
 	dv = difftool -t vimdiff -y
 	search = !git rev-list --all | xargs git grep -F
 	lc = log origin/HEAD --stat --no-merges
-	sundo = reset --soft HEAD^
-	undo = reset HEAD~1 --mixed
+	undo = reset --soft HEAD^
+	hundo = reset HEAD~1 --mixed
 	changes = diff --name-status -r
 	dfs = diff --stat -r
 	new = !sh -c 'git log $1@{1}..$1@{0} \"$@\"'

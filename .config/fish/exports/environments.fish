@@ -11,16 +11,18 @@ set -U fish_auto_suggestion on
 # GPG TTY
 set -gx GPG_TTY (tty)
 
-# Emacs
+# Vim
 set -gx EDITOR neovide
 set -gx ALTERNATIVE_EDITOR ""
 set -gx VISUAL ""
-
 # Neovide 0.13.0 terminal attachment (bug?)feature
 set -x NEOVIDE_FORK 1
 
+# Starts tmux
+# set -g fish_tmux_autostart true
+
 # Anaconda
-set _CONDA_ROOT /opt/anaconda
+# set _CONDA_ROOT /opt/anaconda
 
 ## THEMING
 # set -Ux BAT_THEME Catppuccin-mocha

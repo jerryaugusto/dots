@@ -16,7 +16,7 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$conda\
+$nodejs\
 $elixir\
 $golang\
 $lua\
@@ -74,11 +74,11 @@ nix_shell.disabled = true
 ocaml.disabled = true
 package.disabled = true
 perl.disabled = true
-php.disabled = true
+# php.disabled = true
 # python.disabled = true
 ruby.disabled = true
 rust.disabled = true
-nodejs.disabled = true
+# nodejs.disabled = true
 
 # Prompt symbols
 [character]
@@ -100,7 +100,7 @@ disabled = false
 # disabled = false
 
 [conda]
-symbol = " "                                                                         # 󰤂  󰤂   
+symbol = "󰤂 "                                                                         # 󰤂  󰤂   
 style = "bold autumn_green"
 format = " [$symbol$environment](fg:autumn_green bg:sumi_ink1) "
 ignore_base = true
@@ -170,14 +170,14 @@ style = "bold oni_violet"
 format = " [$symbol($version)](fg:oni_violet bg:sumi_ink1) "
 disabled = false
 
-# [nodejs]
-# symbol = "󰋘 "
-# style = "bold autumn_green"
-# format = " [$symbol($version)](fg:autumn_green bg:sumi_ink1) "
-# disabled = false
+[nodejs]
+symbol = "󰋘 "
+style = "bold autumn_green"
+format = "via [$symbol($version)](fg:autumn_green bg:sumi_ink1) "
+disabled = false
 
 [python]
-symbol = " "                                                                                                           #    󰌠
+symbol = "󰌠 "                                                                                                           #    󰌠
 style = "carp_yellow bold"
 format = ' [${symbol}${pyenv_prefix}(${version})(\($virtualenv\) )](fg:carp_yellow bg:sumi_ink1) '
 disabled = false

@@ -1,7 +1,7 @@
 # PFetch
-if test -e $HOME/.config/pfetch/pfetchrc
-    set -gx PF_SOURCE "$HOME/.config/pfetch/pfetchrc"
-end
+# if test -e $HOME/.config/pfetch/pfetchrc
+#     set -gx PF_SOURCE "$HOME/.config/pfetch/pfetchrc"
+# end
 
 # Starship
 if test -e $HOME/.config/starship/starship.toml

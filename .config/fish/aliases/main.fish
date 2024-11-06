@@ -82,7 +82,10 @@ alias :q exit
 alias emacs "emacsclient -c -a 'emacs'"
 
 # Vim
+# alias v vim
+alias vi neovide
 alias vim neovide
+# alias vim nvim
 
 # alias pls "please"
 # alias sudoedit "pleaseedit"
