@@ -7,9 +7,13 @@ if test -f $HOME/.config/fish/exports/environments.fish
     source $HOME/.config/fish/exports/environments.fish
 end
 
-# Aliases
+# Abbr & Aliases
 if [ -f $HOME/.config/fish/aliases/main.fish ]
     source $HOME/.config/fish/aliases/main.fish
+end
+
+if [ -f $HOME/dots/.config/fish/aliases/abbr.fish ]
+  source $HOME/dots/.config/fish/aliases/abbr.fish
 end
 
 # Load private config
@@ -57,4 +61,4 @@ starship init fish | source
 zoxide init fish | source
 
 # mise
-mise activate fish | source
+#mise activate fish | source

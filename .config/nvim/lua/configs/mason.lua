@@ -1,0 +1,28 @@
+-- local mason = require("mason")
+-- local mason_lspconfig = require("mason-lspconfig")
+-- local uicons = require("ui")
+--
+-- mason.setup({
+-- 	ui = {
+-- 		icons = {
+-- 			package_installed = uicons.glyph.ui.Circle,
+-- 			package_pending = uicons.glyph.ui.SyncAlert,
+-- 			package_uninstalled = uicons.glyph.ui.CircleSmallAlt,
+-- 		},
+-- 	},
+-- })
+--
+-- mason_lspconfig.setup({
+	-- ensure_installed = {
+		-- "lua_ls",
+		-- "tailwindcss",
+		-- "prismals",
+		-- "html",
+		-- "cssls",
+		-- "emmet_ls",
+		-- "biome",
+		-- "denols",
+		-- "ts_ls",
+		-- "vtsls",
+	-- },
+-- })

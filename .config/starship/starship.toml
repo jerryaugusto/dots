@@ -186,11 +186,12 @@ disabled = false
 # similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
 # "~" = " "
-"Documents" = " Docs "
-"Downloads" = "󰇚 Downloads "
-"Music" = "󰝚 Music "
-"Pictures" = "  Pics "
-"nvim" = " vim "
+"Documents" = "󰪷 Docs " #  󰈚 󰪷 󰈦
+"Downloads" = "󰜯 Downloads " # 󰦗 󰇚
+"Music" = "󰌳 Music " # 󰝚 󰋌 󰴙
+"Pictures" = "󰈥  Pics " # 
+"Videos" = "󰴘 Movies " # 󰌲
+"nvim" = " vim " # 
 # Keep in mind that the order matters. For example:
 # "Important Documents" = "  "
 # will not be replaced, because "Documents" was already substituted before.

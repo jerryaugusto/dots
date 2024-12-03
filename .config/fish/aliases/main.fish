@@ -1,6 +1,3 @@
-# n³
-alias n nnn
-
 #Navigation
 alias Downloads 'cd $HOME/Downloads'
 alias Documents 'cd $HOME/Documents'
@@ -12,7 +9,6 @@ alias ls 'eza --icons --long'
 
 alias l 'ls -l'
 alias la 'ls --all'
-alias lla 'ls --list -all'
 alias lt 'ls --tree'
 alias ld 'eza --only-dirs --icons --group-directories-first --header --all'
 alias lg 'eza --git --git-ignore --icons --group-directories-first --header --long --all'
@@ -38,9 +34,6 @@ alias disk 'df -h | rg nvme0n1p2 \
     | sed -e "s_/mnt/[-_A-Za-z0-9]*_\x1b[34;1m&\x1b[0m_"'
 alias preview 'fzf --height=50% --layout=reverse --preview="bat --color=always {}"'
 
-# PHP
-alias pa 'php artisan'
-
 # Git
 alias sgit 'cd `git rev-parse --show-toplevel` && git checkout master && git pull'
 alias cg 'cd "git rev-parse --show-toplevel"'
@@ -63,10 +56,10 @@ alias cg 'cd "git rev-parse --show-toplevel"'
 alias pm pnpm
 alias yolo 'rm -rf node_modules/ && rm package-lock.json && pm install'
 alias playground 'cd ~/workstation/playground/ && eza -a'
-alias study 'cs ~/workstation/study/ && eza -a'
+alias study 'cd ~/workstation/study/ && eza -a'
 
 # alias break 'pomo break'
-alias work 'pomo work'
+# alias work 'pomo work'
 # alias -g G '| ripgrep'
 
 # Bookmarks
@@ -83,8 +76,8 @@ alias emacs "emacsclient -c -a 'emacs'"
 
 # Vim
 # alias v vim
+alias vim nvim
 alias vi neovide
-alias vim neovide
 # alias vim nvim
 
 # alias pls "please"
@@ -92,7 +85,8 @@ alias vim neovide
 alias cat bat
 # alias pip 'pip3'
 alias af asdf
-alias ranger joshuto
+alias ranger superfile
+alias sf superfile
 # alias pomo 'pomo.sh'
 alias curl curlie
 alias c curl

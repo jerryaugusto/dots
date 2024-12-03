@@ -1,88 +1,35 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-capabilities.textDocument.completion.completionItem = {
-	documentationFormat = { "markdown", "plaintext" },
-	snippetSupport = true,
-	preselectSupport = true,
-	insertReplaceSupport = true,
-	labelDetailsSupport = true,
-	deprecatedSupport = true,
-	commitCharactersSupport = true,
-	tagSupport = { valueSet = { 1 } },
-	resolveSupport = {
-		properties = {
-			"documentation",
-			"detail",
-			"additionalTextEdits",
-		},
-	},
-}
-
-local lspconfig = require("lspconfig")
-
--- lspconfig.rust_analyzer.setup({}) INFO "rustaceanvim" setups lsp
-
-lspconfig.lua_ls.setup({
-	filetypes = { "lua" },
-	settings = {
-		Lua = {
-			runtime = {
-				version = "LuaJIT",
-			},
-			completion = {
-				callSnippet = "Replace",
-			},
-			diagnostics = {
-				globals = { "vim" },
-			},
-			format = {
-				defaultConfig = {},
-			},
-			hint = {
-				enable = true,
-			},
-		},
-	},
-})
-
-lspconfig.bashls.setup({})
-
-lspconfig.gopls.setup({})
-
-lspconfig.pylsp.setup({
-	settings = {
-		pylsp = {
-			plugins = {
-				jedi_completion = {
-					include_params = true,
+return {
+	{
+		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			-- Lua stuffs
+			{
+				"folke/lazydev.nvim",
+				ft = "lua", -- only load on lua files
+				opts = {
+					library = {
+						-- See the configuration section for more details
+						-- Load luvit types when the `vim.uv` word is found
+						{ path = "luvit-meta/library", words = { "vim%.uv" } },
+					},
 				},
 			},
+			{
+				"antosha417/nvim-lsp-file-operations",
+				config = function ()
+					require("lsp-file-operations").setup()
+				end,
+			},
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			-- "onsails/lspkind.nvim",
+			"youssef-lr/lsp-overloads.nvim",
 		},
+		config = function()
+			require("configs.lsp")
+		end,
 	},
-})
-
-lspconfig.biome.setup({})
-
-lspconfig.tailwindcss.setup({})
-
-lspconfig.html.setup({})
-
--- lspconfig.ts_ls.setup {
---   cmd = { "typescript-language-server", "--stdio" },
---   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
---   init_options = {
---     hostInfo = "neovim",
---   },
---   single_file_support = true,
---   settings = {
---     completions = {
---       completeFunctionCalls = true,
---     },
---   },
--- }
-
-lspconfig.gleam.setup({})
-
-lspconfig.nil_ls.setup({})
-
-lspconfig.zls.setup({})
+}
