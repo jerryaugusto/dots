@@ -1,5 +1,4 @@
 local lint = require("lint")
-local map = require("core.keymaps.map")
 
 lint.linters_by_ft = {
 	css = { "biomejs" },
@@ -25,6 +24,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 	end,
 })
 
-map("n", "<leader>lt", function()
-	require("lint").try_lint()
-end, "Trigger linting for current file")
+-- vim.keymap.set("n", "<leader>lt", function()
+-- 	require("lint").try_lint()
+-- end, "Trigger linting for current file")

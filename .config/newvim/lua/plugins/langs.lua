@@ -13,13 +13,13 @@ return {
 	-- Golang stuffs
 	{
 		"ray-x/go.nvim",
-		enabled = false,
+		-- enabled = false,
 		-- event = { "CmdlineEnter" },
 		ft = { "go", "gomod" },
 		build = ':lua require("go.install").update_all_sync()',
 		config = function()
-			require("go").setup()
-			-- require("configs.go")
+			-- require("go").setup()
+			require("configs.go")
 		end,
 		-- dependencies = { -- optional packages
 		-- "ray-x/guihua.lua",
@@ -31,15 +31,15 @@ return {
 	},
 
 	-- TypeScript stuffs
-	{
-		"pmizio/typescript-tools.nvim",
-		ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {},
-		config = function()
-			require("configs.typescript")
-		end,
-	},
+	-- {
+	-- 	"pmizio/typescript-tools.nvim",
+	-- 	ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+	-- 	dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+	-- 	opts = {},
+	-- 	config = function()
+	-- 		require("configs.typescript")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"yioneko/nvim-vtsls",
 	-- 	ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" }

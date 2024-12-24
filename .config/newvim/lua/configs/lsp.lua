@@ -1,9 +1,9 @@
 -- Same ui dialog to lsp hover
 vim.cmd(":set winhighlight=" .. "Normal:CmpDoc,FloatBorder:CmpDocBorder")
 
--- local lspconfig_defaults = require("lspconfig").util.default_config
--- lspconfig_defaults.capabilities =
--- 	vim.tbl_deep_extend("force", lspconfig_defaults.capabilities, require("cmp").get_lsp_capabilities())
+local lspconfig_defaults = require("lspconfig").util.default_config
+lspconfig_defaults.capabilities =
+	vim.tbl_deep_extend("force", lspconfig_defaults.capabilities, require("cmp").get_lsp_capabilities())
 
 local uicons = require("ui")
 local handler = {
@@ -35,12 +35,14 @@ require("mason-lspconfig").setup({
 	},
 	ensure_installed = {
 		"lua_ls",
+		"gopls",
 		"tailwindcss",
 		"prismals",
 		"cssls",
 		"html",
 		"emmet_language_server",
 		"vtsls",
+		"biome",
 	},
 })
 

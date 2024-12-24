@@ -5,13 +5,13 @@ return {
 	},
 
 	-- NvChad ui
-	{
-		"nvchad/ui",
-		event = "VeryLazy",
-		config = function()
-			require("nvchad")
-		end,
-	},
+	-- {
+	-- 	"nvchad/ui",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("nvchad")
+	-- 	end,
+	-- },
 
 	-- Kanagawa the G O A T colorscheme ever!
 	{
@@ -43,6 +43,7 @@ return {
 		event = "VeryLazy",
 		branch = "0.1.x",
 		dependencies = {
+			"kkharji/sqlite.lua",
 			"nvim-telescope/telescope-frecency.nvim",
 			"nvim-lua/plenary.nvim",
 			{
@@ -76,18 +77,18 @@ return {
 	},
 
 	-- Statusline stuffs
-	{
-		"nvim-lualine/lualine.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"linrongbin16/lsp-progress.nvim",
-			config = function()
-				require("configs.lsp-progress")
-				-- require "lsp-progress".setup()
-			end,
-		},
-		config = function()
-			require("configs.lualine")
-		end,
-	},
+	-- {
+	-- 	"nvim-lualine/lualine.nvim",
+	-- 	event = "VeryLazy",
+	-- 	dependencies = {
+	-- 		"linrongbin16/lsp-progress.nvim",
+	-- 		config = function()
+	-- 			require("configs.lsp-progress")
+	-- 			-- require "lsp-progress".setup()
+	-- 		end,
+	-- 	},
+	-- 	config = function()
+	-- 		require("configs.lualine")
+	-- 	end,
+	-- },
 }

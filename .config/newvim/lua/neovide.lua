@@ -8,14 +8,14 @@ end
 local g = vim.g
 
 -- Basic Settings
-g.neovide_transparency = 0.8 -- Starting transparency level
-g.neovide_scale_factor = 1.0 -- Initial scale factor
+g.neovide_transparency = 0.8  -- Starting transparency level
+g.neovide_scale_factor = 1.0  -- Initial scale factor
 
 -- Cursor Effects for Better Performance
-g.neovide_cursor_animation_length = 0.05 -- Shorter cursor animation
-g.neovide_cursor_trail_size = 0.3        -- Smaller cursor trail to boost performance
-g.neovide_cursor_vfx_mode = "torpedo"    -- Lighter cursor effect for lower resource usage
-g.neovide_hide_mouse_when_typing = true  -- Hide mouse when typing
+g.neovide_cursor_animation_length = 0.05  -- Shorter cursor animation
+g.neovide_cursor_trail_size = 0.3         -- Smaller cursor trail to boost performance
+g.neovide_cursor_vfx_mode = "torpedo"     -- Lighter cursor effect for lower resource usage
+g.neovide_hide_mouse_when_typing = true   -- Hide mouse when typing
 
 -- Cursor styles per mode
 vim.opt.guicursor = {
@@ -78,8 +78,8 @@ keymap("n", "<F8>", toggleFullscreen, opts)
 keymap("n", "<F9>", toggleTransparency, opts)
 
 -- Clipboard Shortcuts for Copy and Paste (Ctrl+C and Ctrl+V)
-keymap({ "n", "v" }, "<C-c>", '"+y', opts) -- Copy
-keymap({ "n", "v" }, "<C-v>", '"+p', opts) -- Paste
-keymap("i", "<C-v>", "<C-r>+", opts)       -- Paste in insert mode
-keymap("c", "<C-v>", "<C-r>+", opts)       -- Paste in command mode
-keymap("i", "<C-BS>", "<Esc>ciw", opts)    -- Ctrl+Backspace to delete a word in insert mode
+keymap({ "n", "v" }, "<C-c>", '"+y', opts)  -- Copy
+keymap({ "n", "v" }, "<C-v>", '"+p', opts)  -- Paste
+keymap("i", "<C-v>", "<C-r>+", opts)        -- Paste in insert mode
+keymap("c", "<C-v>", "<C-r>+", opts)        -- Paste in command mode
+keymap("i", "<C-BS>", "<Esc>ciw", opts)     -- Ctrl+Backspace to delete a word in insert mode

@@ -1,4 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
 
 -- don't auto comment new line
 autocmd("BufEnter", { command = [[ set formatoptions-=cro ]] })
@@ -13,9 +14,11 @@ autocmd("InsertLeave", {
 
 --Automatically highlight the copied text
 autocmd("TextYankPost", {
-	pattern = "*",
+	desc = "Highlight when yank (copying) test",
+	group = augroup("highlight-yank", { clear = true }),
+	-- pattern = "*",
 	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 300 })
+		vim.highlight.on_yank()
 	end,
 })
 

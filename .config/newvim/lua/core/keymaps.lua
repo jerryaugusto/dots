@@ -17,8 +17,14 @@ map("n", "<leader>bq", "<C-w>o", "Close all windows except the focusd one")
 map("n", "<Esc>", "<cmd>nohl<cr>", "Clear search highlight")
 
 map("n", "<C-s>", "<cmd>update<CR>", "Update file")
+
 map("n", "<Tab>", "<cmd>bnext<CR>", "Next buffer")
 map("n", "<s-Tab>", "<cmd>bprev<CR>", "Previous buffer")
+map("n", "<leader>x", "<cmd>bdelete<cr>", "Delete buffer")
+map("n", "<leader>bd", "<cmd>bdelete<cr>", "Delete buffer")
+map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", "Close all other buffers")
+map("n", "<leader>bl", "<cmd>ls<cr>:b<Space>", "List active buffers")
+map("n", "<leader>bb", "<cmd>buffer<Space>", "Go to specific buffer")
 
 -- increment/decrement numbers
 map("n", "<leader>=", "<C-a>", "Increment number")
@@ -51,6 +57,9 @@ map("c", "<C-k>", "<Down>")
 -- Move to start/end of line
 map({ "n", "x", "o" }, "H", "^")
 map({ "n", "x", "o" }, "L", "g_")
+
+-- select line within its extension limits
+map("n", "<leader>V", "^vg_", "Select line-only")
 
 -- Avoid x and s to override the clipboard
 map("n", "x", '"_x')
@@ -88,6 +97,11 @@ map({ "i", "n", "v" }, "<Left>", "<NOP>")
 map({ "i", "n", "v" }, "<Down>", "<NOP>")
 map({ "i", "n", "v" }, "<Up>", "<NOP>")
 map({ "i", "n", "v" }, "<Right>", "<NOP>")
+
+map("n", "s", "<Plug>(leap)")
+map("n", "S", "<Plug>(leap-from-window)")
+map({ "x", "o" }, "s", "<Plug>(leap-forward)")
+map({ "x", "o" }, "S", "<Plug>(leap-backward)")
 
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")

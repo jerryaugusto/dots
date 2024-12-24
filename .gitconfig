@@ -30,7 +30,8 @@
 	co = checkout
 	ll = log --oneline
 	last = log -1 HEAD --stat
-	cm = commit -m
+	; cm = commit -m
+	cm = !git add -A && git commit -m
 	dv = difftool -t vimdiff -y
 	search = !git rev-list --all | xargs git grep -F
 	lc = log origin/HEAD --stat --no-merges
