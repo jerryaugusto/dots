@@ -38,21 +38,21 @@ return {
           draw = {
             columns = { { 'kind_icon' }, { 'item_idx' }, { 'label', 'label_description', gap = 1 } },
             components = {
-              kind_icon = {
-                ellipsis = false,
-                text = function(ctx)
-                  local kind_icon, _, _ = require "mini.icons".get("lsp", ctx.kind)
-                  return kind_icon
-                end
-              },
+              -- kind_icon = {
+              --   ellipsis = false,
+              --   text = function(ctx)
+              --     local kind_icon, _, _ = require "mini.icons".get("lsp", ctx.kind)
+              --     return kind_icon
+              --   end
+              -- },
               item_idx = {
                 text = function(ctx) return ctx.idx == 10 and '0' or ctx.idx >= 10 and ' ' or tostring(ctx.idx) end,
-                -- highlight = 'BlinkCmpItemIdx' -- optional, only if you want to change its color
+                highlight = 'BlinkCmpItemIdx' -- optional, only if you want to change its color
                 -- Use the highlights from mini.icons
-                highlight = function(ctx)
-                  local _, hl, _ = require "mini.icons".get("lsp", ctx.kind)
-                  return hl
-                end
+                -- highlight = function(ctx)
+                --   local _, hl, _ = require "mini.icons".get("lsp", ctx.kind)
+                --   return hl
+                -- end
               }
             }
           },
@@ -78,6 +78,51 @@ return {
       appearance = {
         use_nvim_cmp_as_default = true,
         nerd_font_variant = "mono",
+
+        kind_icons = {
+          Namespace = "󰘦", -- 󰌗
+          Text = "󰉿",
+          Method = "", -- 󰆧
+          Function = "󰡱", -- 󰆧
+          Constructor = "", --  󱌣
+          Field = "", -- 󰜢  
+          Variable = "󰏫", -- 󰀫
+          Class = "󰆦", -- 󰠱
+          Interface = "󰆩", -- 
+          Module = "󰜋",
+          Property = "󰀫", -- 󰜢 󱍔 󱌢 󰴕 󰋜 󰷔 󱇯 
+          Unit = "󰘨", -- 󰑭
+          Value = "󰆙", -- 󰎠
+          Enum = "󰪚", --  ❐ 󰘷
+          Keyword = "󱕵", -- 󰌋
+          Snippet = "󰴹", --  󰅴 
+          Color = "󰏘",
+          File = "󰈚",
+          Reference = "", -- 󰈇 󰗽
+          Folder = "󰉋",
+          EnumMember = "", -- 
+          Constant = "󰕶", -- 󰏿
+          Struct = "󰜬", -- 󰙅
+          Event = "󰙴", -- 
+          Operator = "", -- 󰆕
+          TypeParameter = "󰊄",
+          Table = "󰓫", -- 
+          Object = "󰅩",
+          Tag = "󰜢", -- 
+          Array = "󰅪", -- [
+          Boolean = "",
+          Number = "", -- 
+          Null = "󰒉", -- 󰟢
+          Supermaven = "",
+          String = "", -- 󰉿
+          Calendar = "",
+          Watch = "󰥔",
+          Package = "󰏗",
+          Copilot = "",
+          Codeium = "",
+          TabNine = "",
+          BladeNav = "",
+        }
       },
 
       signature = { enabled = true },

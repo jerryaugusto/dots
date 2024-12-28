@@ -25,7 +25,13 @@ return {
         map(bufnr, "n", "<space>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
         map(bufnr, "n", "<space>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
       end
+      require("lspconfig").cssls.setup { capabilities = capabilities, on_attach = on_attach }
+      require("lspconfig").gopls.setup { capabilities = capabilities, on_attach = on_attach }
       require("lspconfig").lua_ls.setup { capabilities = capabilities, on_attach = on_attach }
+      require("lspconfig").emmet_language_server.setup { capabilities = capabilities, on_attach = on_attach }
+      require("lspconfig").tailwindcss.setup { capabilities = capabilities, on_attach = on_attach }
+      require("lspconfig").html.setup { capabilities = capabilities, on_attach = on_attach }
+      require("lspconfig").biome.setup { capabilities = capabilities, on_attach = on_attach }
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)

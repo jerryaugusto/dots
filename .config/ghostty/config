@@ -1,0 +1,6 @@
+theme = kanagawa
+font-family = JetBrains Mono
+font-size = 9
+mouse-hide-while-typing = true
+background-opacity = 0.8
+gtk-titlebar = false
