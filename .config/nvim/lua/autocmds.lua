@@ -10,22 +10,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Don't auto comment new line
 vim.api.nvim_create_autocmd("BufEnter", { command = [[ set formatoptions-=cro ]] })
 
--- Native terminal
-vim.api.nvim_create_autocmd("TermOpen", {
-  group = vim.api.nvim_create_augroup("custom-term-open", { clear = true }),
-  callback = function()
-    vim.opt.number = false
-    vim.opt.relativenumber = false
-  end
-})
-
-vim.keymap.set("n", "<leader>th", function()
-  vim.cmd.vnew()
-  vim.cmd.term()
-  vim.cmd.wincmd("J")
-  vim.api.nvim_win_set_height(0, 15)
-end)
-
 -- Automatically disables heavy functionality for large files
 vim.api.nvim_create_autocmd('BufEnter', {
   pattern = '*',
@@ -67,14 +51,14 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Automatically close floating and inactive terminal windows.
-vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
-  pattern = { "help", "terminal", "nofile" },
-  callback = function()
-    if vim.bo.filetype == "help" or vim.bo.filetype == "terminal" then
-      vim.cmd("quit")
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+--   pattern = { "help", "terminal", "nofile" },
+--   callback = function()
+--     if vim.bo.filetype == "help" or vim.bo.filetype == "terminal" then
+--       vim.cmd("quit")
+--     end
+--   end,
+-- })
 
 -- Automatically define the type of indentation based on the file
 vim.api.nvim_create_autocmd("BufReadPost", {
@@ -94,10 +78,10 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- Automatically recharge the file if there are external changes
-vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
-  pattern = "*",
-  command = "checktime",
-})
+-- vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+--   pattern = "*",
+--   command = "checktime",
+-- })
 
 -- Automatically disable the mouse in insertion mode
 vim.api.nvim_create_autocmd("InsertEnter", {

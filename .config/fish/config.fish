@@ -1,39 +1,39 @@
 # Oh-my-posh
 # oh-my-posh init fish | source
-# oh-my-posh init fish --config $HOME/.config/oh-my-posh/themes/kanagawa.omp.json | source
+# oh-my-posh init fish --config $HOME/dots/.config/oh-my-posh/themes/kanagawa.omp.json | source
 
 # Environments
-if test -f $HOME/.config/fish/exports/environments.fish
-    source $HOME/.config/fish/exports/environments.fish
+if test -f $HOME/dots/.config/fish/exports/environments.fish
+    source $HOME/dots/.config/fish/exports/environments.fish
 end
 
 # Abbr & Aliases
-if [ -f $HOME/.config/fish/aliases/main.fish ]
-    source $HOME/.config/fish/aliases/main.fish
+if test -f $HOME/dots/.config/fish/aliases/main.fish
+    source $HOME/dots/.config/fish/aliases/main.fish
 end
 
-if [ -f $HOME/dots/.config/fish/aliases/abbr.fish ]
+if test -f $HOME/dots/.config/fish/aliases/abbr.fish
   source $HOME/dots/.config/fish/aliases/abbr.fish
 end
 
 # Load private config
-if test -e $HOME/.config/fish/functions/private.fish
-    source $HOME/.config/fish/functions/private.fish
+if test -f $HOME/dots/.config/fish/functions/private.fish
+    source $HOME/dots/.config/fish/functions/private.fish
 end
 
 # PATH configurations
-if test -f $HOME/.config/fish/exports/path.fish
-    source $HOME/.config/fish/exports/path.fish
+if test -f $HOME/dots/.config/fish/exports/path.fish
+    source $HOME/dots/.config/fish/exports/path.fish
 end
 
 # Files
-if test -f $HOME/.config/fish/exports/files.fish
-    source $HOME/.config/fish/exports/files.fish
+if test -f $HOME/dots/.config/fish/exports/files.fish
+    source $HOME/dots/.config/fish/exports/files.fish
 end
 
 # Theme
-if test -f $HOME/.config/fish/themes/Kanagawa.fish
-    source $HOME/.config/fish/themes/Kanagawa.fish
+if test -f $HOME/dots/.config/fish/themes/Kanagawa.fish
+    source $HOME/dots/.config/fish/themes/Kanagawa.fish
 end
 
 # Automatically spawn "Warpify" subshells
@@ -51,8 +51,8 @@ end
 # functions --copy fish_prompt fish_prompt_orig; function fish_prompt; fish_prompt_orig; echo; end
 
 # bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
+# set --export BUN_INSTALL "$HOME/.bun"
+# set --export PATH $BUN_INSTALL/bin $PATH
 
 # Starship
 starship init fish | source

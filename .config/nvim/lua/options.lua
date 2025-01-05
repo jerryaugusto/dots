@@ -45,13 +45,13 @@ opt.splitright = true
 opt.termguicolors = true
 opt.swapfile = false
 opt.undofile = true
-opt.undodir = vim.fn.stdpath('data') .. '/undo'
+opt.undodir = vim.fn.stdpath("data") .. "/undo"
 opt.updatetime = 300
 opt.showbreak = "↪"
 opt.list = true
 opt.listchars:append({
   eol = "¬",
-  tab = "  ",  -- :▷⋮ 󰍟 │─
+  tab = "  ", -- :▷⋮ 󰍟 │─
   trail = " ", -- 󰄮 󰿦
   space = space,
   multispace = space,
@@ -70,7 +70,6 @@ opt.listchars:append({
 --     command! Reload :source ~/dots/.config/nvim/init.lua
 -- ]]
 
-
 -- disable some default providers
 g.loaded_node_provider = 0
 g.loaded_python3_provider = 0
@@ -86,6 +85,22 @@ vim.api.nvim_create_autocmd("User", {
     o.shada = shada
     pcall(vim.cmd.rshada, { bang = true })
   end,
+})
+
+vim.opt.laststatus = 0 -- Always display the status line
+
+vim.filetype.add({
+  extension = {
+    env = "dotenv",
+  },
+  filename = {
+    [".env"] = "dotenv",
+    ["env"] = "dotenv",
+  },
+  pattern = {
+    ["[jt]sconfig.*.json"] = "jsonc",
+    ["%.env%.[%w_.-]+"] = "dotenv",
+  },
 })
 
 -- add binaries installed by mason.nvim to path

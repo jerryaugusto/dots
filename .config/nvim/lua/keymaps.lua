@@ -1,12 +1,14 @@
+require("configs.mini.maps")
+
 -- Functional wrapper for mapping custom keybindings
 local function map(mode, keys, action, desc)
-  desc = desc or ""
-  local opts = { noremap = true, silent = true, desc = desc }
-  vim.keymap.set(mode, keys, action, opts)
+	desc = desc or ""
+	local opts = { noremap = true, silent = true, desc = desc }
+	vim.keymap.set(mode, keys, action, opts)
 end
 
 -- Convenience
-map("n", ";", ":", "cmd enter command mode")
+-- map("n", ";", ":", "cmd enter command mode")
 
 map("i", "jj", "<Esc>", "Exit insert mode with jj")
 map("i", "jk", "<Esc>", "Exit insert mode with jk")
@@ -16,11 +18,26 @@ map("i", "kk", "<Esc>", "Exit insert mode with kk")
 map("n", "<Esc>", "<cmd>nohl<cr>", "Clear search highlight")
 
 -- Auto tags
-map("i", "'", "''<left>")
-map("i", "\"", "\"\"<left>")
-map("i", "(", "()<left>")
-map("i", "[", "[]<left>")
-map("i", "{", "{}<left>")
+-- Apostrophe
+-- map("i", "'", "''<left>")
+-- map("i", "\'<cr>", "\'\'<left><cr><Esc>O")
+-- map("i", "\'<space>", "\'\'<left><space><left><space>")
+-- -- Quotation
+-- map("i", "\"", "\"\"<left>")
+-- map("i", "\"<cr>", "\"\"<left><cr><Esc>O")
+-- map("i", "\"<space>", "\"\"<left><space><left><space>")
+-- -- Parenthesis
+-- map("i", "(", "()<left>")
+-- map("i", "(<cr>", "()<left><cr><Esc>O")
+-- map("i", "(<space>", "()<left><space><left><space>")
+-- -- Brackets
+-- map("i", "[", "[]<left>")
+-- map("i", "[<cr>", "[]<left><cr><Esc>O")
+-- map("i", "[<space>", "[]<left><space><left><space>")
+-- -- Brace
+-- map("i", "{", "{}<left>")
+-- map("i", "{<cr>", "{}<left><cr><Esc>O")
+-- map("i", "{<space>", "{}<left><space><left><space>")
 
 -- Simple move
 map("i", "<C-h>", "<left>", "Move cursor to the left")
@@ -29,14 +46,14 @@ map("i", "<C-l>", "<right>", "Move cursor to the right")
 map("i", "<M-l>", "<right>", "Move cursor to the right")
 
 -- Reload management
-map("n", "<leader><leader>r", "<cmd>source %<cr>", "Reload current file")
+-- map("n", "<leader><leader>r", "<cmd>source %<cr>", "Reload current file")
 map("n", "<leader>R", ":.lua<cr>", "Reload lua file")
 map("v", "<leader>R", ":lua<cr>", "Reload selected excerpt")
 map("n", "<C-s>", "<cmd>update<CR>", "Update file")
 
 -- Replaces all instances of highlightes words
-map("n", "<C-S-s>", "viw\"hy:%s/<C-r>h//g<left><left>", "Replace all instances of highlighted words")
-map("v", "<C-S-s>", "\"hy:%s/<C-r>h//g<left><left>", "Replace all instances of highlighted words")
+map("n", "<C-S-s>", 'viw"hy:%s/<C-r>h//g<left><left>', "Replace all instances of highlighted words")
+map("v", "<C-S-s>", '"hy:%s/<C-r>h//g<left><left>', "Replace all instances of highlighted words")
 
 map("v", "<C-M-s>", "<cmd>sort<cr>", "Sort highlighted text in visual mode")
 
@@ -130,7 +147,7 @@ map("v", "<leader>w", "~", "Toggle capitalise")
 
 -- Map enter to ciw in normal mode
 map("i", "<C-BS>", "<Esc>ciw", "Delete a word") -- Ctrl + backspace delete a word
-map("n", "<C-BS>", "hdiw", "Delete a word")
+map("n", "<C-BS>", "diw", "Delete a word")
 map("n", "<CR>", "ciw")
 map("n", "<BS>", "ci")
 
@@ -152,3 +169,43 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("v", "??", 'y:h <C-R>"<cr>"') -- Show vim help
 map("v", "?/", 'y:/ <C-R>"<cr>"') -- Search across the buffer
+
+-- MISCS
+
+-- Toggle Numbering
+map("n", "<leader>n", function()
+	local cmds = { "nu!", "rnu!", "nonu!" }
+	local current_index = 1
+
+	current_index = current_index % #cmds + 1
+	vim.cmd("set " .. cmds[current_index])
+	local signcolumn_setting = "auto"
+	if cmds[current_index] == "nonu!" then
+		signcolumn_setting = "yes:4"
+	end
+	vim.opt.signcolumn = signcolumn_setting
+end, "Toggle line numbering")
+
+-- Toggle inlay hints
+map("n", "<leader>ti", function()
+	local is_enabled = vim.lsp.inlay_hint.is_enabled()
+	vim.lsp.inlay_hint.enable(not is_enabled)
+end, "Toggle inlay hints")
+
+-- Toggle flow state mode, Disable most of the unnecessary plugins :oOc
+map("n", "<leader>fl", function()
+	local state = 0
+	if state == 0 then
+		vim.o.relativenumber = false
+		vim.o.number = false
+		vim.opt.signcolumn = "yes:4"
+		vim.o.winbar = ""
+		state = 1
+	else
+		vim.o.relativenumber = true
+		vim.o.number = true
+		vim.opt.signcolumn = "auto"
+		vim.o.winbar = "%{%v:lua.dropbar.get_dropbar_str()%}"
+		state = 0
+	end
+end, "Toogle flow")

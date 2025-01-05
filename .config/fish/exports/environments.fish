@@ -19,7 +19,7 @@ set -gx VISUAL ""
 set -x NEOVIDE_FORK 1
 
 # Starts tmux
-# set -g fish_tmux_autostart true
+set -g fish_tmux_autostart true
 
 # Anaconda
 # set _CONDA_ROOT /opt/anaconda

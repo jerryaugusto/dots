@@ -80,6 +80,9 @@ alias vim nvim
 alias vi neovide
 # alias vim nvim
 
+# Biome
+# alias biomejs biome
+
 # alias pls "please"
 # alias sudoedit "pleaseedit"
 alias cat bat
