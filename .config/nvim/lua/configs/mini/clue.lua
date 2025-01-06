@@ -31,10 +31,18 @@ clue.setup({
 		-- `z` key
 		{ mode = "n", keys = "z" },
 		{ mode = "x", keys = "z" },
+
+		-- Diagnostics keys
+		{ mode = "n", keys = "d", desc = "Diagnostics" },
 	},
 
 	clues = {
+		{ mode = "n", keys = "<leader>b", desc = "Buffers" },
 		{ mode = "n", keys = "<leader>f", desc = "Fuzzy search" },
+		{ mode = "n", keys = "<leader>g", desc = "Git" },
+		{ mode = "n", keys = "<leader>l", desc = "LSP" },
+		{ mode = "n", keys = "<leader>t", desc = "Split" },
+		{ mode = "n", keys = "<leader>s", desc = "Tabs" },
 		-- Enhance this by adding descriptions for <Leader> mapping groups
 		clue.gen_clues.builtin_completion(),
 		clue.gen_clues.g(),

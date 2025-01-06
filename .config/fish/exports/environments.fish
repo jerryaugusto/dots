@@ -18,6 +18,9 @@ set -gx VISUAL ""
 # Neovide 0.13.0 terminal attachment (bug?)feature
 set -x NEOVIDE_FORK 1
 
+# Terminal type
+set -x TERM xterm-256color
+
 # Starts tmux
 set -g fish_tmux_autostart true
 

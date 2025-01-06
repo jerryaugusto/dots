@@ -59,7 +59,7 @@ map("n", "<leader>gh", function()
 	extra.pickers.git_hunks()
 end, "Show git hunks")
 
-map("n", "<leader>dp", function()
+map("n", "dp", function()
 	extra.pickers.diagnostic()
 end, "Diagnostic in picker")
 
@@ -75,15 +75,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.ui.select = pick.ui_select
 
 		-- Diagnostics mappings
-		map("n", "dp", function()
-			vim.diagnostic.goto_prev({ float = false })
-		end, "Diagnostics goto_prev")
+		-- NOTE alredy native
+		-- map("n", "[d", function()
+		-- 	vim.diagnostic.goto_prev({ float = false })
+		-- end, "Diagnostics goto_prev")
+		--
+		-- map("n", "]d", function()
+		-- 	vim.diagnostic.goto_next({ float = false })
+		-- end, "Diagnostics goto_next")
 
-		map("n", "dn", function()
-			vim.diagnostic.goto_next({ float = false })
-		end, "Diagnostics goto_next")
-
-		map("n", "<leader>ds", vim.diagnostic.setloclist, "Add buffer diagnostics to the location list.")
+		map("n", "ds", vim.diagnostic.setloclist, "Add buffer diagnostics to the location list.")
 
 		-- map("n", "<leader>hi", function()
 		-- 	modules.toggle_inlay_hint() -- toggle inlay hint
@@ -94,13 +95,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, "Toggle inlay hints")
 
 		map("n", "<leader>K", vim.lsp.buf.hover, "Open lsp hover")
-		map("n", "<leader>df", function()
+		map("n", "df", function()
 			vim.diagnostic.open_float()
 		end, "Open diagnostics float ")
 		map("n", "<leader>ld", vim.lsp.buf.definition, "Goto lsp definition")
 		map("n", "<leader>lh", vim.lsp.buf.declaration, "Goto lsp declaration")
 		map("n", "<leader>lt", vim.lsp.buf.type_definition, "Goto lsp type definition")
-		map("n", "<leader>lc", vim.lsp.buf.document_symbol, "Document symbols")
+		map("n", "<leader>ls", vim.lsp.buf.document_symbol, "Document symbols")
 		map("n", "<leader>lw", vim.lsp.buf.workspace_symbol, "Workspace symbols")
 		map("n", "<leader>li", vim.lsp.buf.implementation, "Goto lsp implementation")
 		map("n", "<leader>lR", vim.lsp.buf.references, "Goto lsp reference")

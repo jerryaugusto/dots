@@ -16,8 +16,10 @@ end
 
 local servers = {
 	biome = {},
-	cssls = {},
 	gopls = {},
+	cssls = {},
+	vtsls = {},
+	-- ts_ls = {},
 	emmet_language_server = {},
 	tailwindcss = {},
 	html = {},

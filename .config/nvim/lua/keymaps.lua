@@ -3,12 +3,9 @@ require("configs.mini.maps")
 -- Functional wrapper for mapping custom keybindings
 local function map(mode, keys, action, desc)
 	desc = desc or ""
-	local opts = { noremap = true, silent = true, desc = desc }
+	local opts = { noremap = true, remap = true, silent = true, desc = desc }
 	vim.keymap.set(mode, keys, action, opts)
 end
-
--- Convenience
--- map("n", ";", ":", "cmd enter command mode")
 
 map("i", "jj", "<Esc>", "Exit insert mode with jj")
 map("i", "jk", "<Esc>", "Exit insert mode with jk")
@@ -17,33 +14,17 @@ map("i", "kk", "<Esc>", "Exit insert mode with kk")
 
 map("n", "<Esc>", "<cmd>nohl<cr>", "Clear search highlight")
 
--- Auto tags
--- Apostrophe
--- map("i", "'", "''<left>")
--- map("i", "\'<cr>", "\'\'<left><cr><Esc>O")
--- map("i", "\'<space>", "\'\'<left><space><left><space>")
--- -- Quotation
--- map("i", "\"", "\"\"<left>")
--- map("i", "\"<cr>", "\"\"<left><cr><Esc>O")
--- map("i", "\"<space>", "\"\"<left><space><left><space>")
--- -- Parenthesis
--- map("i", "(", "()<left>")
--- map("i", "(<cr>", "()<left><cr><Esc>O")
--- map("i", "(<space>", "()<left><space><left><space>")
--- -- Brackets
--- map("i", "[", "[]<left>")
--- map("i", "[<cr>", "[]<left><cr><Esc>O")
--- map("i", "[<space>", "[]<left><space><left><space>")
--- -- Brace
--- map("i", "{", "{}<left>")
--- map("i", "{<cr>", "{}<left><cr><Esc>O")
--- map("i", "{<space>", "{}<left><space><left><space>")
+-- map("n", "q", "<nop>", "Desabling q macro key")
+-- map("n", "<S-q>", "q", "Remaping macro key to Q")
 
 -- Simple move
 map("i", "<C-h>", "<left>", "Move cursor to the left")
 map("i", "<M-h>", "<left>", "Move cursor to the left")
 map("i", "<C-l>", "<right>", "Move cursor to the right")
 map("i", "<M-l>", "<right>", "Move cursor to the right")
+
+-- Duplicate a line and comment out the first line
+map("n", "yc", "yygccp", "Duplicate a line and comment out the first line")
 
 -- Reload management
 -- map("n", "<leader><leader>r", "<cmd>source %<cr>", "Reload current file")
@@ -71,8 +52,9 @@ map("n", "<leader>tx", "<cmd>tabclose<cr>", "Closes current  tab")
 map("n", "<leader>tn", "<cmd>tabnext<cr>", "Moves to next tab")
 map("n", "<leader>tp", "<cmd>tabprevious", "Moves to previous tab")
 
-map("n", "<M-j>", "<cmd>cnext<cr>")
-map("n", "<M-k>", "<cmd>cprevious<cr>")
+-- Errors navigate
+map("n", "<M-j>", "<cmd>cnext<cr>", "Goto next error")
+map("n", "<M-k>", "<cmd>cprevious<cr>", "Goto previous error")
 
 -- Slipt bindings
 map("n", "<leader>sv", "<cmd>vsplit<cr>", "Creates a vertical split")
